@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-//se define el esquema de una mensaje para mongoDB Atlas
+//se define el esquema de un mensaje para mongoDB Atlas
 const messageSchema = new mongoose.Schema({
     name: {
         type: String, 
