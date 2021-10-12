@@ -1,3 +1,9 @@
+/* 
+    Está clase es la más importante del Backend, pues aquí se despliega el servidor haciendo uso de
+    Express, el cual para cuestiones de desarrollo correra en el localhost:3000.
+    Para cuestiones de comunicación entre BACKEND y FRONTED se hace uso de la libreria cors.
+*/
+
 const express = require('express');
 const app = express();
 const cors = require('cors')
@@ -6,7 +12,7 @@ const cookieParser = require('cookie-parser');
 var corsOptions = {
     origin: 'http://localhost:3000',
     credentials: true,
-    optionsSuccessStatus: 200 // For legacy browser support
+    optionsSuccessStatus: 200 // está opción es para Browser Legacy.
 }
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -27,7 +33,6 @@ const Room = require('./models/Room');
 const Message = require('./models/Message')
 
 app.get('/set-cookies', (req, res) => {
-    res.cookie('username', 'Tirofijo');
     res.cookie('isAuthenticated', true, { maxAge: 24 * 60 * 60 * 1000 });
     res.send('cookies are set');
 })

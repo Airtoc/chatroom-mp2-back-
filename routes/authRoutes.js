@@ -1,3 +1,4 @@
+// Esta ruta sera usada para darle la información de del usuario a la aplicación.
 const {Router} = require('express')
 const authController = require('../controllers/authControllers')
 const router = Router();

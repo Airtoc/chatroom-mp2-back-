@@ -1,3 +1,8 @@
+/* 
+    Esta clase nos permite hacer toda la parte de autentificación haciendo uso de las librerias:
+    -JWT
+*/
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const maxAge = 5 * 24 * 60 * 60
@@ -34,6 +39,9 @@ const alertError = (err) => {
     return errors
 }
 
+/* 
+    Está función nos permite crear un token de JWT a partir de que el usuario se registre.
+*/
 module.exports.signup = async (req, res) => {
     const { name, email, password } = req.body;
     try {
@@ -46,7 +54,9 @@ module.exports.signup = async (req, res) => {
         res.status(400).json({ errors });
     }
 }
-
+/* 
+    Está función nos permite crear un token de JWT a partir de que el usuario se logee.
+*/
 module.exports.login = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -60,7 +70,9 @@ module.exports.login = async (req, res) => {
         res.status(400).json({ errors });
     }
 }
-
+/*
+    Está función nos permite hacer una verificación del usuario, a partir del JWT token.
+*/
 module.exports.verifyuser = (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
@@ -79,7 +91,9 @@ module.exports.verifyuser = (req, res, next) => {
         next();
     }
 }
-
+/*
+    Asigna un cookie vacio y elimina el JWT token cuando el usuario cierre sesión.
+*/
 module.exports.logout = (req, res) => {
     res.cookie('jwt', "", { maxAge: 1 })
     res.status(200).json({ logout: true })

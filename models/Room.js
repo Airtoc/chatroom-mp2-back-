@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-//se define el esquema de una sala para mongoDB Atlas
+// Se define el esquema del modelo 'Sala {Room}' para enviar al cluster de: MongoDB Atlas.
 const roomSchema = new mongoose.Schema({
     name: {
         type: String, 
