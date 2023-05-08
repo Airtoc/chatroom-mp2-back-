@@ -25,7 +25,7 @@ const mongoose = require('mongoose');
 const socketio = require('socket.io');
 const { callbackify } = require('util');
 const io = socketio(http);
-const mongoDB = "mongodb+srv://chatdoveadmin:chatfis20221@cluster0.cvjsi.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = "";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('connected')).catch(err => console.log(err))
 const {addUser, getUser, removeUser} = require('./helper');
 const PORT = process.env.PORT || 5000
